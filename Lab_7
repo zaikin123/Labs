@@ -1,0 +1,33 @@
+#include "pch.h"
+#include <iostream> 
+using namespace std; 
+
+int main() 
+{
+	const int N = 1000;
+	int A[N];
+	int i, b, s;
+
+	s = 0;
+	cin >> b; //Ввод кол-вв элементов массива
+	for (int i = 0; i < b; i++) {
+		cout << "input A[" << i + 1 << "]:";
+		cin >> A[i];    //Ввод значения в ячейку массива с клавиатуры
+	}
+	for (int i = 0; i < b; i++)
+	{
+		if ((A[i] % 3 == 0) && (A[i] % 5 != 0)) // Проверка крастности 
+			{
+				s += A[i]; //Сумма элементов  
+			}
+	}
+	for (int i = 0; i < b; i++) 
+	{
+		A[i] += s; //Прибавление суммы к каждому элементу 
+	}
+	for (int i = 0; i < b; i++)
+	{
+		cout << "output A[" << i + 1 << "]:";
+		cout << A[i] << '\n';    //Вывод элементов 
+	}
+}
