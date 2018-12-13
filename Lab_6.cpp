@@ -3,7 +3,7 @@
 using namespace std;
 
 
-public void real(int m)
+ void real(int m)
 {
 	int i, j, s, l;
 	for (i = 2; i < m; i++)
