@@ -1,33 +1,64 @@
 #include "pch.h"
 #include <iostream> 
-using namespace std; 
 
-int main() 
+using namespace std;
+
+void print_arr(int* arr);
+int sum(int* arr);
+void enter_arr(int* p);
+void change_arr(int* arr, int s);
+
+const int SIZE = 10;
+
+int main()
 {
-	const int N = 1000;
-	int A[N];
-	int i, b, s;
+	setlocale(LC_ALL, "rus");
+	int arr[10]{};
+	enter_arr(arr);
+	print_arr(arr);
+	int s = sum(arr);
+	cout << "\n" << "Сумма элементов кратных 3 и не кратных 5: " << s << endl;
+	change_arr(arr, s);
+	print_arr(arr);
+}
 
-	s = 0;
-	cin >> b; //Ввод кол-вв элементов массива
-	for (int i = 0; i < b; i++) {
-		cout << "input A[" << i + 1 << "]:";
-		cin >> A[i];    //Ввод значения в ячейку массива с клавиатуры
-	}
-	for (int i = 0; i < b; i++)
+
+void enter_arr(int* arr) 
+{
+	for (int i = 0; i < SIZE; i++) 
 	{
-		if ((A[i] % 3 == 0) && (A[i] % 5 != 0)) // Проверка крастности 
-			{
-				s += A[i]; //Сумма элементов  
-			}
+		cin >> arr[i];
 	}
-	for (int i = 0; i < b; i++) 
+}
+
+int sum(int* arr)
+{
+	int s = arr[0];
+
+	for (int i = 0; i < SIZE; i++)
 	{
-		A[i] += s; //Прибавление суммы к каждому элементу 
+		if ((arr[i] % 3 == 0) && (arr[i] % 5 != 0)) // Проверка крастности 
+		{
+			s += arr[i]; //Сумма элементов  
+		}
 	}
-	for (int i = 0; i < b; i++)
+	return s;
+}
+
+
+void change_arr(int* arr, int s)
+{
+	for (int i = 0; i < 10; i++) 
 	{
-		cout << "output A[" << i + 1 << "]:";
-		cout << A[i] << '\n';    //Вывод элементов 
+		arr[i] += s;
+	}
+}
+
+void print_arr(int* arr)
+{
+	cout << "Массив: " << endl; //вывод массива на экран
+	for (int i = 0; i < 10; i++)
+	{
+		cout << arr[i] << " ";
 	}
 }
