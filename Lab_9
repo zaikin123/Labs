@@ -16,7 +16,7 @@ void wordsbetween(int i, char *s, int k, int g, int count)
 {
 	for (i = k; i < g; i++) // перебор значений в диапазоне от первой до второй ';'
 	{
-		if (s[i] == ' ')
+		if (s[i] == ' ' && s[i+1] != ' ')
 		{
 			count++;// счетчик слов по ' '
 		}
